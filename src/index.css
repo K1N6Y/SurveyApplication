@@ -32,3 +32,9 @@
 .buttonRow { display: flex; justify-content: center; }
 .buttonRow button { margin: 5px; width: 200px; height: 45px; border: none; border-radius: 5px; font-size: 16px; font-weight: bold; }
 .buttonRow button:hover { border-bottom: 2px solid rgb(254, 210, 3) !important; }
+
+@media (max-width: 768px) {
+  .buttonRow { flex-direction: column; }
+  .buttonRow button { width: 100%; }
+  .stroopBox p { font-size: 100px; }
+}
