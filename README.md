@@ -17,6 +17,7 @@ This is a web application designed to conduct surveys and gather user data. It a
 - **React**: Frontend framework for building the user interface.
 - **JavaScript (TypeScript)**: Programming language used for frontend development.
 - **HTML/CSS**: Markup and styling languages for structuring and styling the application.
+- **Firebase**: Storing the data collected in the surveys.
 - **GitHub**: Version control and collaboration platform.
 - **Kinsta**: Hosting platform for deploying the application.
 
