@@ -4,9 +4,11 @@ import FormTitle from "./Layout/FormTitle";
 import FormButton from "./Layout/FormButton";
 
 const words = ["Red", "Blue", "Green", "Orange", "Purple"];
-const colors = ["red", "blue", "green", "orange", "purple"];
+const colorOptions = ["Red", "Blue", "Green", "Orange", "Purple"];
 
 const getRandomIndex = (length: number) => Math.floor(Math.random() * length);
+const getRandomColor = () =>
+  colorOptions[Math.floor(Math.random() * colorOptions.length)];
 
 interface Props {
   onComplete: (totalScore: number, avgResponseTime: number) => void;
@@ -19,9 +21,11 @@ const QuestionnaireTwo: React.FC<Props> = ({ onComplete }) => {
   const [answeredQuestions, setAnsweredQuestions] = useState(0);
   const [correctCount, setCorrectCount] = useState(1);
   const [testStarted, setTestStarted] = useState(false);
+  const [currentColor, setCurrentColor] = useState("");
 
   const handleStartTest = () => {
     setCurrentQuestionIndex(getRandomIndex(words.length)); // Select the first question
+    setCurrentColor(getRandomColor()); // Get initial color
     setStartTime(performance.now()); // Start the timer
     setTestStarted(true); // Mark the test as started
   };
@@ -33,15 +37,24 @@ const QuestionnaireTwo: React.FC<Props> = ({ onComplete }) => {
 
     setResponseTimes((prevTimes) => [...prevTimes, responseTime]);
 
-    const displayedWord = words[currentQuestionIndex];
-    if (selectedWord === displayedWord) {
+    const displayedColor = currentColor;
+    if (selectedWord === displayedColor) {
       setCorrectCount((prevCount) => prevCount + 1);
+      console.log("Correct! The displayed color was:", displayedColor);
+    } else {
+      console.log(
+        "InCorrect! The displayed color was:",
+        displayedColor,
+        "You chose:",
+        selectedWord
+      );
     }
 
-    if (answeredQuestions < 9) {
+    if (answeredQuestions < 19) {
       setAnsweredQuestions((prevCount) => prevCount + 1);
       setCurrentQuestionIndex(getRandomIndex(words.length)); // Select a random question
       setStartTime(performance.now()); // Start timing for the next question
+      setCurrentColor(getRandomColor()); // Get a new color
     } else {
       // Calculate average response time
       const totalResponseTime = responseTimes.reduce(
@@ -78,12 +91,12 @@ const QuestionnaireTwo: React.FC<Props> = ({ onComplete }) => {
           </>
         ) : (
           <>
-            {answeredQuestions < 10 ? (
+            {answeredQuestions < 20 ? (
               <StroopQuestion
                 word={words[currentQuestionIndex]}
-                color={colors[currentQuestionIndex]}
+                textColor={currentColor}
                 onOptionClick={handleOptionClick}
-                onStartQuestion={() => setStartTime(performance.now())} // Start timing for the first question
+                onStartQuestion={() => setStartTime(performance.now())} // Start timing for the first
               />
             ) : (
               <div>

@@ -2,30 +2,21 @@ import React from "react";
 
 interface StroopQuestionProps {
   word: string;
-  color: string;
-  onOptionClick: (selectedWord: string) => void; // Change isCorrect to selectedWord
+  textColor: string; // New prop to pass the color
+  onOptionClick: (selectedWord: string) => void;
   onStartQuestion: () => void;
 }
 
 const StroopQuestion: React.FC<StroopQuestionProps> = ({
   word,
-  color,
+  textColor,
   onOptionClick,
 }) => {
   const colorOptions = ["Red", "Blue", "Green", "Orange", "Purple"];
 
-  const getRandomColor = () => {
-    const availableColors = colorOptions.filter(
-      (option) => option.toLowerCase() !== color.toLowerCase()
-    );
-    return availableColors[Math.floor(Math.random() * availableColors.length)];
-  };
-
   const handleClick = (option: string) => {
-    onOptionClick(option); // Pass the selected option to the parent component
+    onOptionClick(option);
   };
-
-  const textColor = getRandomColor();
 
   return (
     <div className="stroopBox">

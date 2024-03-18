@@ -51,7 +51,7 @@ const FinalPage: React.FC<FinalPageProps> = ({
         </p>
         <h3>Stroop Test Results</h3>
         <p>
-          Questionnaire Two Score: <strong>{questionnaireTwoScore}</strong> / 10
+          Questionnaire Two Score: <strong>{questionnaireTwoScore}</strong> / 20
         </p>
         <p>
           Average Response Time: <strong>{questionnaireTwoAvgTime}</strong> ms
