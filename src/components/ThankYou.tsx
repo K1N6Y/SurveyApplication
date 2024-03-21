@@ -24,7 +24,11 @@ const ThankYou: React.FC = () => {
           Once the study has been completed, the researcher will prepare a
           general summary of the findings that will be ready around 12/04/2023.
           If you would like a copy of this general summary, please email the
-          researcher at the address above.
+          researcher at the address:{" "}
+          <a href="mailto:w21011345@northumbria.ac.uk">
+            w21011345@northumbria.ac.uk
+          </a>
+          .
         </p>
         <h3>
           If I change my mind and wish to withdraw the information I have
@@ -86,7 +90,10 @@ const ThankYou: React.FC = () => {
         <p>
           If you require confirmation of this, or if you have any concerns or
           worries concerning this research, or if you wish to register a
-          complaint, please contact: nick.neave@northumbria.ac.uk
+          complaint, please contact:{" "}
+          <a href="mailto:nick.neave@northumbria.ac.uk">
+            nick.neave@northumbria.ac.uk
+          </a>
         </p>
         <p>
           <strong>Thank you for participating</strong>
